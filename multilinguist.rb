@@ -52,3 +52,58 @@ class Multilinguist
     json_response['translationText']
   end
 end
+
+ list_num =[22, 33, 44, 66, 77, 55, 332]
+
+class Mathgenius < Multilinguist
+    def initialize
+      @numbers
+    end
+
+  def report_total(list_num)
+      numbers = list_num
+      numbers.sum
+      in_lang = say_in_local_language("The total is")
+
+      return  "#{in_lang} #{numbers.sum}"
+
+  end
+
+
+
+end
+
+class Quotacollector < Multilinguist
+
+    def initialize
+      @quotes =[]
+    end
+    def quotes
+      return @quotes
+    end
+    def memorize(new_quotes)
+        @quotes << new_quotes
+    end
+    def randum_quotes
+      array_length = @quotes.length
+      randumaly_quotes  =  @quoes.rand(array_length)
+       p say_in_local_language(randumaly_quotes)
+    end
+
+end
+
+p "====main menu===="
+
+p "creating new Mathgenius"
+p mathgen = Mathgenius.new
+p mathgen.report_total(list_num)
+p mathgen.travel_to("germany")
+p mathgen.report_total(list_num)
+p mathgen.travel_to("Canada")
+p mathgen.memorize("Don't cry because it's over, smile because it happened.")
+p mathgen.memorize("Be yourself; everyone else is already taken.")
+p mathgen.memorize("Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.")
+p mathgen.randum_quotes
+p mathgen.travel_to("netherland")
+p mathgen.report_total(list_num)
+p mathgen.randum_quotes
